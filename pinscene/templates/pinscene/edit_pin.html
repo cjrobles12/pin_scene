@@ -1,0 +1,19 @@
+{% extends "pinscene/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+  <h2>Edit Pin:</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <p><a href="{% url 'pinscene:pin' pin.id %}">{{ pin }}</a></p>
+
+  <p>Edit Pin:</p>
+
+  <form action="{% url 'pinscene:edit_pin' pin.id %}" method='post' class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button name="submit">Save Changes</button>      
+  </form> 
+
+{% endblock content %}

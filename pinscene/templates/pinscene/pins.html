@@ -1,0 +1,24 @@
+{% extends "pinscene/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h1>Pins</h1>
+{% endblock header %}
+
+{% block content %}
+  <ul>
+      {% for pin in pins %}
+        <li>
+            <h3>
+                <a href="{% url 'pinscene:pin' pin.id %}">{{ pin }}</a>
+            </h3>
+        </li>
+      {% empty %}
+        <li>No pins have been added yet.</li>
+      {% endfor %}    
+  </ul>
+  
+ <h3> <a href="{% url 'pinscene:new_pin' %}"><button name="submit">Add New Pin</button></a> </h3>
+   
+
+{% endblock content %}
